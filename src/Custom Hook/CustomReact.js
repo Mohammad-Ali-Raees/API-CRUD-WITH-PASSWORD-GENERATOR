@@ -26,16 +26,23 @@ const CustomReact = () => {
             Title: GetValue.Title,
             Body: GetValue.Body
         }
-        setStoredValue([...storedValue, FormData]); // We can store in local storage like this
-        SetLocalStorageValue([...localStorageValue, FormData])
-        SetValue({ Title: "", Body: "" })
+        if(!GetValue.Title || !GetValue.Body){
+            alert("Fill The Fields First")
+        }else{
+            setStoredValue([...storedValue, FormData]); // We can store in local storage like this
+            SetLocalStorageValue([...localStorageValue, FormData])
+            alert("Data Submited Thanks!")
+            SetValue({ Title: "", Body: "" })
+        }
+       
 
     }
 
     return (
         <div className='container'>
             <div className='row justify-content-center'>
-                <div className='col-md-6 border p-4 mt-4'>
+                <h3 className='display-4 text-center  mt-5'>THIS FORM IS BASED ON CUSTOM HOOK</h3>
+                <div className='col-md-6 border p-4 mt-5'>
 
                     <div className="mb-3">
                         <label className="form-label">Title</label>
